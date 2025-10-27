@@ -1,0 +1,311 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    nav {
+      display: flex;
+      flex-direction: column;
+      .navBarTop, .navBarBottom {
+        display: flex;
+        width: 100%;
+        min-width: 700px;
+        background-color: red;
+      }
+      .navBarTop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1em;
+        padding: 1em 3em;
+        color: white;
+        .wrapperLeft{
+          span {
+            padding: 0.3em 0.7em;
+            border-radius: 99vw;
+            cursor: pointer;
+          }
+          span:first-of-type {
+            background-color: rgb(180, 17, 17);
+          }
+          span:last-of-type:hover {
+            background-color: rgb(180, 17, 17);
+          }
+        }
+        .wrapperRight {
+          display: none;
+          width: 20px;
+          img {
+            cursor: pointer;
+          }
+        }
+        @media screen and (max-width:1600px) {
+          .wrapperRight {
+            display: initial;
+          }
+        }
+      }
+      .navBarBottom {
+        align-items: center;
+        padding: 2em 3em;
+        border-top: 1px solid rgba(141, 125, 125, 0.589);
+        .logoWrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          height: 2em;
+          margin-right: 3em;
+          font-size: 1.5rem;
+          color: white;
+          border-radius: 5px;
+          cursor: pointer;
+          img {
+            width: 1.5em;
+          }
+        }
+        @media screen and (max-width:1600px) {
+          .links {
+            display: none;
+          }
+        }
+        ul {
+          display: flex;
+          li{
+            margin-right: 2em;
+            font-size: 1.2rem;
+            color: white;
+            list-style-type: none;
+            cursor: pointer;
+          }
+        }
+        .buttons {
+          flex: 1;
+          text-align: right;
+          color: white;
+          cursor: pointer;
+          span:first-of-type{
+            border-right: 1px solid rgb(180, 17, 17);
+            padding-right: 20px;
+            margin-right: 20px;
+          }
+          span:last-of-type{
+            padding: 0.3em 1em;
+            border: 2px solid white;
+            border-radius: 99vw;
+            transition: 0.5s;
+          }
+          span:last-of-type:hover {
+            background-color: rgb(180, 17, 17);
+          }
+        }
+      }
+    }
+    .teaser {
+      position: relative;
+      background-image: url(./assets/teaser.jpg);
+      background-size: cover;
+      background-position: center;
+      flex: 1;
+      min-width: 700px;
+      .teaser__box {
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        width: 400px;
+        aspect-ratio: 1;
+        padding: 1.5em;
+        background-color: white;
+        h2 {
+          margin-bottom: 1em;
+          color: red;
+        }
+        p {
+          margin-bottom: 1em;
+          font-size: 1.1rem;
+          span {
+            font-weight: bold;
+          }
+        }
+        button {
+          padding: 1em 1.5em;
+          background-color: red;
+          color: white;
+          font-size: 1rem;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+    .modal {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(141, 125, 125, 0.932);
+      form {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30%;
+        // aspect-ratio: 1;
+        padding: 4em 1em;
+        background-color: white;
+        border-radius: 5px;
+        > span {
+          position: absolute;
+          top: 3%;
+          right: 5%;
+          color: red;
+          font-size: 0.8rem;
+          cursor: pointer;
+        }
+        h3 {
+          margin-bottom: 3em;
+        }
+        label {
+          display: flex;
+          flex-direction: column;
+          width: 70%;
+          margin-bottom: 2em;
+          input {
+            padding: 0.3em 1em;
+            font-size: 1.1rem;
+            border: 2px solid darkslategray;
+            border-radius: 5px;
+            outline: none;
+          }
+          input:focus{
+            border: 2px solid rgb(41, 106, 226);
+
+          }
+        }
+        button {
+          padding: 1em 2.5em;
+          background-color: red;
+          color: white;
+          border: none;
+          border-radius: 99vw;
+          cursor: pointer;
+          transition: 0.5s;
+        }
+        button:hover {
+          background-color: rgb(180, 17, 17);
+        }
+        .register {
+          margin-top: 1em;
+          span {
+            color: red;
+            font-weight: bold;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            cursor: pointer;
+          }
+        }
+        .footerWrapper {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 1em;
+          font-size: 0.8rem;
+          .divider {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: rgb(43, 40, 40);
+            border-radius: 50%;
+          }
+        }
+      }
+    } .membersWrapper {
+      flex: 1;
+      padding: 3em;
+      min-width: 700px;
+      background-color: rgb(216, 209, 209);
+      h1 {
+        text-align: center;
+      }
+      .revenueWrapper {
+        margin: 3em auto;
+        padding: 2em;
+        width: 50%;
+        height: 300px;
+        min-width: 580px;
+        background-color: white;
+        border-radius: 10px;
+        overflow-y: auto;
+        h3 {
+          padding: 0.3em 0;
+          border-bottom: 2px dashed rgb(89, 117, 117);
+        }
+        ul {
+          margin-top: 1em;
+          li {
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+      }
+      .transactionWrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        min-width: 580px;
+        margin: 3em auto;
+        padding: 3em;
+        background-color: white;
+        border-radius: 5px;
+        .payIn, .chargeOff {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          padding: 1em 2em;
+          width: 45%;
+          min-width: 230px;
+          background-color: gainsboro;
+          border-radius: 5px;
+          label {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.8rem;
+            input {
+              padding: 0.3em 1em;
+              border: none;
+              outline: none;
+              border-radius: 2px;
+            }
+          }
+          button {
+            padding: 0.4em 1.5em;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 99vw;
+            cursor: pointer;
+            transition: 0.5s;
+          }
+          button:hover {
+            background-color: rgb(180, 17, 17);
+          }
+        }
+        h3 {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+
