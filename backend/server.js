@@ -6,7 +6,7 @@ import cookieParser from "cookie-parser";
 
 connectDB();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -23,6 +23,17 @@ app.use(cookieParser());
 app.use(express.json());
 app.use("/users", userRouter);
 
-app.listen(PORT, () => {
+// Health check route for Render
+app.get("/", (req, res) => {
+  res.json({
+    message: "DCI Bank API is running!",
+    status: "OK",
+    timestamp: new Date().toISOString(),
+  });
+});
+
+// Bind to all interfaces for Render
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server is listening on port: ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
 });

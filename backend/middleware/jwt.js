@@ -16,18 +16,19 @@ export async function authenticate(req, res, next) {
     const token = req.cookies?.jwt;
 
     console.log({ token });
-    if (!token) return res.status(404).json({ msg: "No token found!" });
+    if (!token) return res.status(401).json({ msg: "No token found!" });
 
     const decoded = verifyToken(token);
     console.log({ decoded });
 
     const user = await User.findById(decoded.id);
 
-    if (!user) return res.status(404).json({ msg: "User not found!" });
+    if (!user) return res.status(401).json({ msg: "User not found!" });
 
     req.user = user;
     next();
   } catch (err) {
+    console.log("JWT Error:", err);
     return res.status(401).json({ message: "Invalid token" });
   }
 }
